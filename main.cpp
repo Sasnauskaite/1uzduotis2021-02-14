@@ -28,14 +28,35 @@ void print(string, string)
     cout<<image<<space<<line<<space<<image<<endl;
     cout<<spaceline<<endl<<starline<<endl;
 }
-
+bool Gender(string name)
+{
+    string lastLetter;
+    bool status = true;
+    for (int i=0; i<name.size(); i++)
+    {
+        lastLetter=name[i];
+    }
+    if(lastLetter != "s")
+    {
+        status = false;
+    }
+    return status;
+}
 int main()
 {
     string name; 
-    int mini=1, maxi=10;
-    line="Sveiki, ";
+    
     cout<<"Iveskite savo varda: ";
     cin>>name;
+    if(Gender(name))
+    {
+        line="Sveikas, ";
+        name.back()='i';
+    }
+    else
+    {
+        line="Sveika, ";
+    }
     line+=name+"!";
     print(MakeFrame(line), line);
 
